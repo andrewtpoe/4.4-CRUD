@@ -1,0 +1,24 @@
+<h1>Create new album record!</h1>
+
+<%= form_for @album do |f| %>
+  <% if @album.errors.messages.present? %>
+    <%= render partial: "errors", locals: { record: @album } %>
+  <% end %>
+  <table class: "albums__addNew">
+    <tr>
+      <th><%= f.label "#{:title} *" %></th>
+      <th><%= f.text_field :title, autofocus: true %></th>
+    </tr>
+    <tr>
+      <th><%= f.label "#{:artist} *" %></th>
+      <th><%= f.text_field :artist %></th>
+    </tr>
+    <tr>
+      <th><%= f.label "#{:genre} *" %></th>
+      <th><%= f.text_field :genre %></th>
+    </tr>
+  </table>
+    <%= f.submit 'Submit' %>
+<% end %>
+
+<%= button_to 'Home', root_path, method: 'get', class: "albums__homeButton" %>

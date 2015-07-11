@@ -1,0 +1,48 @@
+<h1>Displaying album details</h1>
+
+<table>
+  <tr>
+    <th>
+      <h3>Title</h3>
+    </th>
+    <th>
+      <%= @album.title %>
+    </th>
+  </tr>
+  <tr>
+    <th>
+      <h3>Artist</h3>
+    </th>
+    <th>
+      <%= @album.artist %>
+    </th>
+  </tr>
+  <tr>
+    <th>
+      <h3>Genre</h3>
+    </th>
+    <th>
+      <%= @album.genre %>
+    </th>
+  </tr>
+  <tr>
+    <th>
+      <h3>Id</h3>
+    </th>
+    <th>
+      <%= @album.id %>
+    </th>
+  </tr>
+  <tr>
+    <th>
+      <h3>Date Added</h3>
+    </th>
+    <th>
+      <%= @album.created_at.strftime("%d %b. %Y") %>
+    </th>
+  </tr>
+</table>
+
+<%= button_to 'Edit', edit_album_path(@album.id), method: 'get', class: "albums__editButton" %>
+
+<%= button_to 'Home', root_path, method: 'get', class: "albums__homeButton" %>

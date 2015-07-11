@@ -4,18 +4,9 @@ This purpose of this project is to demonstrate proficiency manipulating a databa
 * Create a new record
 * View all records
 * View a detail page for a single record
-* Update records
+* Update a single record
 * Delete a record
 
-The full requirements as were provided are:
+### Update- 2015-07-10, 9:00pm
 
-### Requirements
-* the root route should work (this can be the albums' index page)
-* an `Album` model (with specs)
-* an `AlbumsController` which encompasses all of the CRUD actions
-* the appropriate routes in the routes folder
-* `index` `new` and `edit` pages
-* a form on the `/albums/new` page
-* a form on the `/albums/edit` page
-* error message handling for each form
-* the controller should handle what happens in any use case
+Styling is completely absent at this time, but all functionality is present. Users are able to view all records, view additional details on a single record, as well as create a new record, update an existing record, and delete an existing record.

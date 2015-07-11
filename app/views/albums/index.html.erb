@@ -1,0 +1,40 @@
+<h1>CRUDdy, the Music Manager!</h1>
+
+<div class="albums__manager">
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Artist</th>
+      <th>Details</th>
+      <th>Delete</th>
+    </tr>
+    <% if @albums.length > 0 %>
+      <% @albums.each_with_index do |album, i| %>
+        <tr>
+          <th>
+            <%= album.title %>
+          </th>
+          <th>
+            <%= album.artist %>
+          </th>
+          <th>
+            <%= button_to 'MORE >>', album_path(album.id), method: 'get' %>
+          </th>
+          <th>
+            <%= button_to('DELETE', album_path(album.id), method: 'delete', remote: false, data: { confirm: 'Are you sure?', disable_with: 'loading...'}) %>
+            <%# button_to('DELETE', album_path(album.id), method: 'delete', data: { confirm: 'Are you sure you want to delete this album?' }) %>
+          </th>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+  <%= button_to 'Add New', new_album_path, method: 'get', class: "albums__addButton" %>
+</div>
+
+
+<!-- ########################################################### -->
+<!-- Experiment with making check boxes to delete multiples later -->
+<%# form_tag(delete_albums_path) do %>
+<%# check_box_tag("selected[]", album.id, false, id: "selected_#{i}") %>
+<%# end %>
+<!-- ########################################################### -->

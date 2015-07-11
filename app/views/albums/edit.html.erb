@@ -1,0 +1,21 @@
+<h1>Edit album record</h1>
+
+<%= form_for @album do |f| %>
+  <table class: "albums__edit">
+    <tr>
+      <th><%= f.label :title %></th>
+      <th><%= f.text_field :title, value: @album.title %></th>
+    </tr>
+    <tr>
+      <th><%= f.label :artist %></th>
+      <th><%= f.text_field :artist, value: @album.artist %></th>
+    </tr>
+    <tr>
+      <th><%= f.label :genre %></th>
+      <th><%= f.text_field :genre, value: @album.genre %></th>
+    </tr>
+  </table>
+  <%= f.submit 'Submit', data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+<%= button_to 'Home', root_path, method: 'get', class: "albums__homeButton" %>
