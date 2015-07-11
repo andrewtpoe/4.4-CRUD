@@ -1,5 +1,9 @@
 <h1>Edit album record</h1>
 
+<% if @album.errors.messages.present? %>
+  <%= render partial: "errors", locals: { record: @album } %>
+<% end %>
+
 <%= form_for @album do |f| %>
   <table class: "albums__edit">
     <tr>

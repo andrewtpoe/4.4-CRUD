@@ -1,9 +1,10 @@
 <h1>Create new album record!</h1>
 
+<% if @album.errors.messages.present? %>
+  <%= render partial: "errors", locals: { record: @album } %>
+<% end %>
+
 <%= form_for @album do |f| %>
-  <% if @album.errors.messages.present? %>
-    <%= render partial: "errors", locals: { record: @album } %>
-  <% end %>
   <table class: "albums__addNew">
     <tr>
       <th><%= f.label "#{:title} *" %></th>

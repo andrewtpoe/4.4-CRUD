@@ -17,11 +17,6 @@ class AlbumsController < ApplicationController
     end
   end
 
-  def destroy
-    Album.find_by(id: params['id']).destroy
-    redirect_to root_path
-  end
-
   def show
     @album = get_album
   end
@@ -31,26 +26,24 @@ class AlbumsController < ApplicationController
   end
 
   def update
-    update = params['album']
-    Album.update(params['id'], title: update['title'], artist: update['artist'], genre: update['genre'])
-    redirect_to action: 'show'
+    @album = Album.find(params[:id])
+    if @album.update_attributes(album_params)
+      redirect_to action: 'index'
+    else
+      render :edit
+    end
   end
+
+    def destroy
+      Album.find_by(id: params['id']).destroy
+      redirect_to root_path
+    end
 
   private
 
   def album_params
     params.require(:album).permit(:title, :artist, :genre)
   end
-
-  # def array_of_albums
-  #   if params['selected'] == 0
-  #     arr = nil
-  #   else
-  #     arr = params['selected'].map do |id|
-  #       Album.find_by(id: id)
-  #     end
-  #   end
-  # end
 
   def get_album
     @album = Album.find_by(id: params['id'])
