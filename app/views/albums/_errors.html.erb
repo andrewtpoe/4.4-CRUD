@@ -1,13 +1,15 @@
-<% if record.errors.messages.present? %>
+<div class="album__errors">
+  <% if record.errors.messages.present? %>
 
-  <h3>Something went wrong! Please correct these errors.</h3>
+    <h3>Something went wrong! Please correct these errors and try again.</h3>
 
-  <ul>
-    <% record.errors.full_messages.each do |message| %>
-      <li>
-        <%= message %>
-      </li>
-    <% end %>
-  </ul>
+    <ul>
+      <% record.errors.full_messages.each do |message| %>
+        <li>
+          <%= message %>
+        </li>
+      <% end %>
+    </ul>
 
-<% end %>
+  <% end %>
+</div>

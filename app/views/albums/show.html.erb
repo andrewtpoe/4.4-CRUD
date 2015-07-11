@@ -1,48 +1,57 @@
-<h1>Displaying album details</h1>
+<div class="albums__topNav">
+  <%= button_to 'Home', root_path, method: 'get', class: "albums__homeButton" %>
 
-<table>
-  <tr>
-    <th>
+  <%= button_to 'Edit Details', edit_album_path(@album.id), method: 'get', class: "albums__editButton" %>
+</div>
+
+<table class="albums__table">
+  <col style="width:50%">
+  <col style="width:50%">
+  <tr class="albums__tableHeader">
+    <th colspan=2>
+      <h2>Album Details</h2>
+    </th>
+  </tr>
+  <tr class="albums__tableRow">
+    <td>
       <h3>Title</h3>
-    </th>
-    <th>
+    </t>
+    <td>
       <%= @album.title %>
-    </th>
+    </td>
   </tr>
-  <tr>
-    <th>
+  <tr class="albums__tableRowAlt">
+    <td>
       <h3>Artist</h3>
-    </th>
-    <th>
+    </td>
+    <td>
       <%= @album.artist %>
-    </th>
+    </td>
   </tr>
-  <tr>
-    <th>
+  <tr class="albums__tableRow">
+    <td>
       <h3>Genre</h3>
-    </th>
-    <th>
+    </td>
+    <td>
       <%= @album.genre %>
-    </th>
+    </td>
   </tr>
-  <tr>
-    <th>
+  <tr class="albums__tableRowAlt">
+    <td>
       <h3>Id</h3>
-    </th>
-    <th>
+    </td>
+    <td>
       <%= @album.id %>
-    </th>
+    </td>
   </tr>
-  <tr>
-    <th>
+  <tr class="albums__tableRow">
+    <td>
       <h3>Added</h3>
-    </th>
-    <th>
+    </td>
+    <td>
       <%= @album.created_at.strftime("%d %b. %Y") %>
-    </th>
+    </td>
+  </tr class="albums__tableRowAlt">
+  <tr class="albums__tableBottom">
   </tr>
 </table>
-
-<%= button_to 'Edit', edit_album_path(@album.id), method: 'get', class: "albums__editButton" %>
-
-<%= button_to 'Home', root_path, method: 'get', class: "albums__homeButton" %>

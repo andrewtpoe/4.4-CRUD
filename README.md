@@ -10,3 +10,7 @@ This purpose of this project is to demonstrate proficiency manipulating a databa
 ### Update- 2015-07-10, 9:00pm
 
 Styling is completely absent at this time, but all functionality is present. Users are able to view all records, view additional details on a single record, as well as create a new record, update an existing record, and delete an existing record.
+
+### Update- 2015-07-11, 7:30pm
+
+Added styling to site. Also refactored some of the code to improve functionality. CRUDdy now works and looks good!

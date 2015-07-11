@@ -1,36 +1,42 @@
-<h1>CRUDdy, the Music Manager!</h1>
-
-<div class="albums__manager">
-  <table>
-    <tr>
-      <th>Title</th>
-      <th>Artist</th>
-      <th>Details</th>
-      <th>Delete</th>
-    </tr>
-    <% if @albums.length > 0 %>
-      <% @albums.each_with_index do |album, i| %>
-        <tr>
-          <th>
-            <%= album.title %>
-          </th>
-          <th>
-            <%= album.artist %>
-          </th>
-          <th>
-            <%= button_to 'MORE >>', album_path(album.id), method: 'get' %>
-          </th>
-          <th>
-            <%= button_to('DELETE', album_path(album.id), method: 'delete', remote: false, data: { confirm: 'Are you sure?', disable_with: 'loading...'}) %>
-            <%# button_to('DELETE', album_path(album.id), method: 'delete', data: { confirm: 'Are you sure you want to delete this album?' }) %>
-          </th>
-        </tr>
-      <% end %>
-    <% end %>
-  </table>
-  <%= button_to 'Add New', new_album_path, method: 'get', class: "albums__addButton" %>
+<div class="albums__topNav">
+    <%= button_to 'ADD NEW', new_album_path, { method: 'get', class: "albums__addButton" } %>
 </div>
 
+<table class="albums__table">
+  <tr class="albums__tableHeader">
+    <th><h3>Title</h3></th>
+    <th><h3>Artist</h3></th>
+    <th><h3>Details</h3></th>
+    <th><h3>Delete</h3></th>
+  </tr>
+  <% if @albums.length > 0 %>
+    <% @albums.each_with_index do |album, i| %>
+      <tr class=
+        <% if i % 2 == 0 %>
+            <%= "albums__tableRow" %>
+          <% else %>
+            <%= "albums__tableRowAlt" %>
+          <% end %>
+        >
+        <th>
+          <%= album.title %>
+        </th>
+        <th>
+          <%= album.artist %>
+        </th>
+        <th>
+          <%= button_to 'MORE >>', album_path(album.id), method: 'get' %>
+        </th>
+        <th>
+          <%= button_to('DELETE', album_path(album.id), method: 'delete', remote: false, data: { confirm: 'Are you sure?', disable_with: 'loading...'}) %>
+        </th>
+      </tr>
+    <% end %>
+  <% end %>
+  <tr class="albums__tableBottom">
+  </tr>
+
+</table>
 
 <!-- ########################################################### -->
 <!-- Experiment with making check boxes to delete multiples later -->
