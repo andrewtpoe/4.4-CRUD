@@ -14,3 +14,7 @@ Styling is completely absent at this time, but all functionality is present. Use
 ### Update- 2015-07-11, 7:30pm
 
 Added styling to site. Also refactored some of the code to improve functionality. CRUDdy now works and looks good!
+
+### Update- 2015-07-12, 5:20pm
+
+Refactored code to improve readability and appearance.

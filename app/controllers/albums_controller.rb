@@ -11,7 +11,7 @@ class AlbumsController < ApplicationController
   def create
     @album = Album.new(album_params)
     if @album.save
-      redirect_to action: 'index'
+      redirect_to root_path
     else
       render :new
     end
@@ -28,14 +28,15 @@ class AlbumsController < ApplicationController
   def update
     @album = Album.find(params[:id])
     if @album.update_attributes(album_params)
-      redirect_to action: 'index'
+      redirect_to root_path
     else
       render :edit
     end
   end
 
     def destroy
-      Album.find_by(id: params['id']).destroy
+      @album = get_album
+      @album.destroy
       redirect_to root_path
     end
 
@@ -46,7 +47,7 @@ class AlbumsController < ApplicationController
   end
 
   def get_album
-    @album = Album.find_by(id: params['id'])
+    Album.find_by(id: params['id'])
   end
 
 end

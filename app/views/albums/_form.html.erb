@@ -1,0 +1,45 @@
+<%= form_for @album do |f| %>
+  <table class="albums__table">
+    <col style="width:50%">
+    <col style="width:50%">
+    <tr class="albums__tableHeader">
+      <th colspan=2>
+        <h2>Edit Details</h2>
+      </th>
+    </tr>
+    <tr class="albums__tableRow">
+      <th>
+        <%= f.label :title %>
+      </th>
+      <th>
+        <%= f.text_field :title, autofocus: true, size: 50, value: options[0] %>
+      </th>
+    </tr>
+    <tr class="albums__tableRowAlt">
+      <th>
+        <%= f.label :artist %>
+      </th>
+      <th>
+        <%= f.text_field :artist, size: 50, value: options[1] %>
+      </th>
+    </tr>
+    <tr class="albums__tableRow">
+      <th>
+        <%= f.label :genre %>
+      </th>
+      <th>
+        <%= f.text_field :genre, size: 50, value: options[2] %>
+      </th>
+    </tr>
+    <tr class="albums__tableRowAlt">
+      <td>
+        all fields required
+      </td>
+      <td>
+        <%= f.submit 'Submit' %>
+      </td>
+    </tr>
+    <tr class="albums__tableBottom">
+    </tr>
+  </table>
+<% end %>

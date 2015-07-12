@@ -11,13 +11,7 @@
   </tr>
   <% if @albums.length > 0 %>
     <% @albums.each_with_index do |album, i| %>
-      <tr class=
-        <% if i % 2 == 0 %>
-            <%= "albums__tableRow" %>
-          <% else %>
-            <%= "albums__tableRowAlt" %>
-          <% end %>
-        >
+      <tr class=<%= row_or_alt_row(i) %> >
         <th>
           <%= album.title %>
         </th>
@@ -28,7 +22,7 @@
           <%= button_to 'MORE >>', album_path(album.id), method: 'get' %>
         </th>
         <th>
-          <%= button_to('DELETE', album_path(album.id), method: 'delete', remote: false, data: { confirm: 'Are you sure?', disable_with: 'loading...'}) %>
+          <%= button_to('DELETE', album_path(album.id), method: 'delete', remote: false, data: { confirm: 'Are you sure?' } ) %>
         </th>
       </tr>
     <% end %>
